@@ -1,0 +1,25 @@
+<div class=" container shadow row-3 mt-3 mb-5">
+    <div class="" *ngFor="let d of subjects">
+        <div class="row pad10p ">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 align-content-center ">
+                <div class="card ">
+                    <div class="card-header">
+                        <h5 class="font-weight-bold">{{d.title}}</h5>
+                        <h5 class="font-italic"> {{d.personEmail}}</h5>
+                    </div>
+
+                    <div *ngFor="let p of d.listNotes">
+                        <div class="card-body">
+                            <h5 class="mat-badge-active">{{p.title}}</h5>
+                            <p [innerHTML]="transform(p.body)">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

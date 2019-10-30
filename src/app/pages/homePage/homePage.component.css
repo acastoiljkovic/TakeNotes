@@ -1,0 +1,15 @@
+mat-card {
+    width: 80%;
+    margin: 16px auto;
+    display: block;
+    text-align: center;
+}
+
+mat-form-field,
+hr {
+    width: 80%;
+}
+
+.add-button {
+    margin: 0 50% auto;
+}

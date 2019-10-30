@@ -1,0 +1,27 @@
+<div class="p-3 pb-5 container justify-content-center">
+    <mat-expansion-panel class="card p-1" *ngFor="let subject of subjects">
+        <mat-expansion-panel-header class="card-header p-1">
+            <mat-panel-title>
+                {{subject.title}}
+            </mat-panel-title>
+            <button mat-icon-button (click)="editSubject(subject.title)"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button (click)="removeSubject(subject.title)"><mat-icon>delete</mat-icon></button>
+        </mat-expansion-panel-header>
+        <mat-expansion-panel *ngFor="let note of subject.listNotes">
+            <mat-expansion-panel-header class="card-body">
+                <mat-panel-title>
+                    <p>{{note.title}}</p>
+                </mat-panel-title>
+                <button mat-icon-button (click)='editNote(subject.title,note.title)'><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button (click)="removeNote(subject.title,note.title)"><mat-icon>delete</mat-icon></button>
+            </mat-expansion-panel-header>
+            <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="note.body" [config]="editorConfig">
+            </angular-editor>
+            <button mat-button (click)="saveNote(subject.title,note.title,note.body)" class="mat-raised-button m-2 uk-position-top-right">Save</button>
+        </mat-expansion-panel>
+        <button mat-icon-button class="add-button" (click)="openAddNoteDialog(subject.title)"><mat-icon class="icon-class">add_box</mat-icon></button>
+    </mat-expansion-panel>
+    <div class="justify-content-center">
+        <button mat-icon-button class="add-button" (click)="openAddSubjectDialog()"><mat-icon>add_box</mat-icon></button>
+    </div>
+</div>

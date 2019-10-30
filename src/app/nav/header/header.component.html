@@ -1,18 +1,25 @@
-<nav class="  navbar navbar-expand-lg navbar-dark bg-dark  col-12 ">
-    <div class="container-fluid">
-        <a routerLink="/" class="navbar-brand col-6">TAKENOTES</a>
-        <div class=" navbar-collapse col-6">
-            <ul class="navbar-nav ml-auto col-3">
-                <li><a *ngIf="!userIsAuthenticated" routerLink="/loginPage" class="nav-link  col-1">Login</a></li>
-                <li><a *ngIf="!userIsAuthenticated" routerLink="/registerPage" class="nav-link col-1">Register</a></li>
-                <li *ngIf="userIsAuthenticated">
-                    <p class="text-light pt-2 p-1 col-1">{{firstName}}</p>
-                </li>
-                <li *ngIf="userIsAuthenticated">
-                    <p class="text-light pt-2 p-1 col-1">{{lastName}}</p>
-                </li>
-                <li><a *ngIf="userIsAuthenticated" (click)="onLogout()" class="nav-link col-1">Logout</a></li>
-            </ul>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark shadow bg-dark">
+        <div class="container-fluid ">
+            <div class="col-10 ">
+                <a class="navbar-brand " routerLink="/">TAKENOTES</a>
+            </div>
+            <button class="navbar-toggler d-lg-none " type="button " (click)="isCollapsed=! isCollapsed " [attr.aria-expanded]="isCollapsed " aria-controls="navbarsExampleDefault " aria-label="Toggle navigation ">
+                    <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse " id="navbarsExampleDefault " [ngbCollapse]="!isCollapsed ">
+                <ul class="navbar-nav flex-grow-1 ">
+                    <li><a *ngIf="!userIsAuthenticated " routerLink="/loginPage" class="nav-link col-1 ">Login</a></li>
+                    <li><a *ngIf="!userIsAuthenticated " routerLink="/registerPage" class="nav-link col-1 ">Register</a></li>
+                    <li *ngIf="userIsAuthenticated ">
+                        <p class="text-light pt-2 p-1 col-1 ">{{firstName}}</p>
+                    </li>
+                    <li *ngIf="userIsAuthenticated ">
+                        <p class="text-light pt-2 p-1 col-1 ">{{lastName}}</p>
+                    </li>
+                    <li><a *ngIf="userIsAuthenticated " (click)="onLogout()" class="nav-link col-1 ">Logout</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
